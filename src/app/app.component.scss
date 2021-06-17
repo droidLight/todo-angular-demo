@@ -1,0 +1,16 @@
+#text-input{
+    width: 400px;
+    height: 60px;
+}
+#container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px;
+}
+
+#notes-list{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
