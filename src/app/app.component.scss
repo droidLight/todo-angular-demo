@@ -1,16 +1,23 @@
-#text-input{
-    width: 400px;
-    height: 60px;
-}
-#container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 16px;
+#nav-header{
+    overflow: hidden;
+    background-color: #263238;
+    padding: 10px;
 }
 
-#notes-list{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+#nav-header a{
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 16px;
+    margin: 0px 8px;
+    font-size: 20px;
+    font-family: 'Roboto', 'sans-serif';
+    color: white;
+}
+
+#nav-header a:hover{
+    background-color: white;
+    color: black;
+}
+.active-link{
+    color: green;
 }

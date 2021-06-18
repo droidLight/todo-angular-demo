@@ -1,0 +1,7 @@
+<div id="list-container" class="flex col">
+  <app-notecount [noteCount]="noteCount" [authorName]="authorName"></app-notecount>
+  <div id="notes-list" class="flex row">
+    <app-todo *ngFor="let noteid of noteIds" [noteId]="noteid"></app-todo>
+  </div>
+
+</div>

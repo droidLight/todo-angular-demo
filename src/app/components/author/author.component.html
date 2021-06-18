@@ -1,0 +1,11 @@
+<div id="author-container" class="flex col">
+    <div id="author-card" class="flex col">
+        <span class="header-text">Author name</span>
+        <input id="author-input" [(ngModel)]="authorName" placeholder="Author name"/>
+
+        <span class="header-text">Note</span>
+        <textarea id="text-input" [(ngModel)]="noteText"></textarea>
+        
+        <button id="next-btn" (click)="saveNote()"><i class="fa fa-plus"></i> Add note</button>
+    </div>
+</div>

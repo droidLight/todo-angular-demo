@@ -1,6 +1,16 @@
-<div [appDone]="styling">
+<div class="todo-item" [appDone]="styling">
     
     <p class="note-text">{{noteText}}</p>
-    <button (click)="deleteTodo()">Delete</button>
-    <button (click)="markAsDone()">Mark as done</button>
+    <div class="btn-container">
+        <div>
+            <p class="author-text">@ {{noteAuthor}}</p>
+            <p class="date-text">on {{dateOfCreation | date:'mediumDate'}}</p>
+        </div>
+        
+        <div>
+            <button class="btn delete-btn" (click)="deleteTodo()"><i class="fa fa-trash"></i></button>
+            <button class="btn done-btn" (click)="markAsDone()"><i class="fa fa-check"></i></button>
+            <button class="btn edit-btn" (click)="openModal()"><i class="fa fa-edit"></i></button>
+        </div>
+    </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { TodoService } from './services/todoservices/todo.service';
+import { UserServices } from './services/userservices/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,32 +9,14 @@ import { TodoService } from './services/todoservices/todo.service';
 })
 export class AppComponent implements OnInit{
   
-  noteIds:string[] = [];
-  noteText:string="";  
+  authorName:string="";
 
-  constructor(private todoServices:TodoService){
-    
-    //update the note-ids list on delete and insert operations
-    this.todoServices.todoObservable.subscribe((noteEvent)=>{
-      this.noteIds = this.todoServices.getNoteIds();
-      
-      if(noteEvent.action==="done"){
-        //reloads the entire page.
-        //looking for alternate solution. using router??
-        location.reload();
-      }
-    });
-  }
-  
+  constructor(private userServices:UserServices){}
+
   ngOnInit(){
-    //get ids from the localstorage initially
-    this.noteIds = this.todoServices.getNoteIds();            
+    this.userServices.userObservable.subscribe((name)=>{
+      this.authorName = name;
+      console.log(`name updated: ${this.authorName}`);
+    })
   }
-
-  addTodo(){
-    this.todoServices.saveNote(this.noteText);    
-  }
-
-
-
 }

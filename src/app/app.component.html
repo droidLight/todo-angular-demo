@@ -1,13 +1,5 @@
-<div id="container">
-  <div id="search-container">
-    <textarea id="text-input" [(ngModel)]="noteText"></textarea>
-    <button (click)="addTodo()">Add Todo</button>
-  </div>
-  <div>
-    <p></p>
-  </div>
-  <div id="notes-list">
-    <app-todo *ngFor="let noteid of noteIds" [noteId]="noteid"></app-todo>
-  </div>
+<div id="nav-header">
+    <a routerLink="/" [routerLinkActive]="'active-link'">Add Todo</a>
+    <a [routerLink]="['list', authorName]" [routerLinkActive]="'active-link'">Todo List</a>    
 </div>
 <router-outlet></router-outlet>

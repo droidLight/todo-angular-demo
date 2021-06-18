@@ -1,6 +1,53 @@
-.todo-item{
+.todo-item{    
     border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 8px;
     margin: 16px;
+    width: 25vw;
+}
+
+.done{
+    border: 2px solid green;
+    box-shadow: 4px 4px 8px rgba(0,255,0,0.3);
+}
+.no{
+    border: 2px solid black;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+}
+
+.note-text{
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 600;
+}
+.author-text{
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 900;
+    display: inline;
+}
+.date-text{
+    font-family: 'Roboto', 'sans-serif';
+    font-weight: 600;
+    display: inline;
+    margin-left: 8px;
+}
+.btn-container{
+    margin-top: 32px;
+}
+.btn{
+    border: none;
+    padding: 10px;
+    margin:8px;
+    cursor: pointer;
+}
+.delete-btn{
+    background-color: red;
+    color: white;
+}
+.done-btn{
+    background-color: green;
+    color:white;
+}
+.edit-btn{
+    background-color: orange;
+    color: white;
 }

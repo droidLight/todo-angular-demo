@@ -7,10 +7,12 @@ import NoteEvent from './NoteEvent';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss']
 })
-export class TodoComponent implements OnChanges{
+export class TodoComponent implements OnInit, OnChanges{
 
   @Input() noteId = "";
   noteText: string = "";
+  noteAuthor:string="";
+  dateOfCreation:Date=new Date();
 
   isNoteCompleted: boolean = false;
 
@@ -18,18 +20,23 @@ export class TodoComponent implements OnChanges{
 
   constructor(private todoService:TodoService){}
 
+  ngOnInit(){
+    this.todoService.todoObservable.subscribe((data)=>{
+      console.log("todoObservable");
+      location.reload();
+    });
+  }
+
   ngOnChanges(){
     let noteData = this.todoService.getNote(this.noteId);
-    this.noteText = noteData.text;
-    this.isNoteCompleted = noteData.isDone;
+    this.noteText = noteData.note_text;
+    this.isNoteCompleted = noteData.is_done;
+    this.noteAuthor = noteData.author_name;
+    this.dateOfCreation = noteData.creation_date;
 
     //styling for custom attribute directive
     this.styling = {
-      "border-color": this.isNoteCompleted ? "green" : "black",
-      "border-width": "2px",
-      "padding": "8px",
-      "margin": "16px",
-      "border-radius": "20px"
+      "is_completed":this.isNoteCompleted?"done":"no",      
     };
   }
 
@@ -38,7 +45,13 @@ export class TodoComponent implements OnChanges{
   }
 
   deleteTodo() {
-    this.todoService.deleteTodo(this.noteId);    
+    this.todoService.deleteTodo(this.noteId, this.noteAuthor);    
   }
 
+  openModal(){
+    let data = prompt("Enter updated note");
+    if(data !==null){
+      this.todoService.updateNote(this.noteId, data);
+    }    
+  }
 }
